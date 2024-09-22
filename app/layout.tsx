@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { Provider as JotaiProvider } from "jotai";
 import { Navbar } from "@components/Navbar";
+import { Providers } from "./providers";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -16,6 +16,20 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Rick and Morty",
   description: "Rick and Morty",
+  openGraph: {
+    title: "Rick and Morty Character Explorer",
+    description:
+      "Explore the vast universe of Rick and Morty characters. Discover detailed information about your favorite characters from the show.",
+    type: "website",
+    url: "https://rickandmorty-explorer.com",
+    siteName: "Rick and Morty Character Explorer",
+    locale: "en_US",
+    images: [
+      {
+        url: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -26,10 +40,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <JotaiProvider>
+        <Providers>
           <Navbar />
           {children}
-        </JotaiProvider>
+        </Providers>
       </body>
     </html>
   );
