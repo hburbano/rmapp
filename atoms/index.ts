@@ -7,7 +7,7 @@ export const colorSchemeAtom = atomWithStorage<ColorScheme>(
   "light"
 );
 
-export const favoriteCharactersAtom = atomWithStorage<number[]>(
+export const favoriteCharactersAtom = atomWithStorage<string[]>(
   "favoriteCharacters",
   []
 );
