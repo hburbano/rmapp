@@ -1,24 +1,42 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-color: #000;
+  --link-color: #1c75b9;
+  --link-white-color: #fff;
+  --bg-color: rgb(243, 243, 243);
+  --color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+[data-theme="dark"] {
+  --font-color: #c1bfbd;
+  --link-color: #0a86da;
+  --link-white-color: #c1bfbd;
+  --bg-color: #333;
+  --color-scheme: dark;
 }
 
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  color-scheme: var(--color-scheme, light);
+  font-family: var(--font-geist-mono);
+  animation: animateBackground 20s linear infinite;
+}
+
+@keyframes animateBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 100%;
+  }
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: var(--font-color);
+  background: var(--bg-color);
+  transition: background 0.4s ease-in-out;
+  /* animation: sunset 10s infinite; */
 }
 
 * {
@@ -30,10 +48,4 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }

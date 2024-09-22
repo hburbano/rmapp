@@ -1,0 +1,25 @@
+query GetCharacters($filter: FilterCharacter) {
+  characters(page: 1, filter: $filter) {
+    info {
+      count
+    }
+    results {
+      id
+      name
+    }
+  }
+}
+
+query GetCharacter($id: ID!) {
+  character(id: $id) {
+    name
+    image
+    status
+    species
+    type
+    gender
+    origin {
+      name
+    }
+  }
+}
