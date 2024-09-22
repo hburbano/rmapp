@@ -14,4 +14,7 @@ type Character = {
   origin: {
     name: string;
   };
+  episode: {
+    name: string;
+  }[];
 };

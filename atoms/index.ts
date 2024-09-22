@@ -1,3 +1,4 @@
+import { atom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
 
 type ColorScheme = "light" | "dark";
@@ -12,19 +13,14 @@ export const favoriteCharactersAtom = atomWithStorage<number[]>(
 );
 
 type Filter = {
-  name: string;
-  status: string;
-  species: string;
-  type: string;
-  gender: string;
-  origin: string;
+  name?: string;
+  status?: string;
+  species?: string;
+  type?: string;
+  gender?: string;
+  origin?: string;
 };
 
-export const filterAtom = atomWithStorage<Filter>("filter", {
+export const filterAtom = atom<Filter>({
   name: "",
-  status: "",
-  species: "",
-  type: "",
-  gender: "",
-  origin: "",
 });

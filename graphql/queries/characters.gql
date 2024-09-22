@@ -1,25 +1,30 @@
-query GetCharacters($filter: FilterCharacter) {
-  characters(page: 1, filter: $filter) {
+fragment CharacterFields on Character {
+  name
+  image
+  status
+  species
+  type
+  gender
+  origin {
+    name
+  }
+}
+
+query GetCharacters($filter: FilterCharacter, $page: Int) {
+  characters(filter: $filter, page: $page) {
     info {
       count
+      pages
     }
     results {
       id
-      name
+      ...CharacterFields
     }
   }
 }
 
 query GetCharacter($id: ID!) {
   character(id: $id) {
-    name
-    image
-    status
-    species
-    type
-    gender
-    origin {
-      name
-    }
+    ...CharacterFields
   }
 }

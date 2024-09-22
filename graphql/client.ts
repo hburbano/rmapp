@@ -1,7 +1,7 @@
 import { registerUrql } from "@urql/next/rsc";
 import { cacheExchange, createClient, fetchExchange } from "urql";
 
-const API_URL = "https://rickandmortyapi.com/graphql";
+export const API_URL = "https://rickandmortyapi.com/graphql";
 
 const makeClient = () => {
   return createClient({
