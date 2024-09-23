@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import { Pagination } from './Pagination'
 
 describe('Pagination', () => {
@@ -63,6 +63,22 @@ describe('Pagination', () => {
       expect(
         screen.getByRole('button', { name: labels.next })
       ).not.toBeDisabled()
+    })
+
+    it('should call onPageChange with next page when next button is clicked', async () => {
+      renderPagination({ currentPage: 2 })
+      const nextButton = screen.getByRole('button', { name: labels.next })
+      await fireEvent.click(nextButton)
+      expect(defaultProps.onPageChange).toHaveBeenCalledWith(3)
+    })
+
+    it('should call onPageChange with previous page when previous button is clicked', async () => {
+      renderPagination({ currentPage: 2 })
+      const previousButton = screen.getByRole('button', {
+        name: labels.previous,
+      })
+      await fireEvent.click(previousButton)
+      expect(defaultProps.onPageChange).toHaveBeenCalledWith(1)
     })
   })
 })
