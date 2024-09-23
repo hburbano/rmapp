@@ -1,14 +1,15 @@
-"use client";
+'use client'
 
-import { useAtom } from "jotai";
-import { filterAtom } from "@atoms";
+import { useAtom } from 'jotai'
+
+import { filterAtom } from '@atoms'
 
 export function Filters() {
-  const [filter, setFilter] = useAtom(filterAtom);
+  const [filter, setFilter] = useAtom(filterAtom)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFilter({ ...filter, [e.target.name]: e.target.value });
-  };
+    setFilter({ ...filter, [e.target.name]: e.target.value })
+  }
 
   return (
     <div>
@@ -56,5 +57,5 @@ export function Filters() {
         onChange={handleChange}
       />
     </div>
-  );
+  )
 }

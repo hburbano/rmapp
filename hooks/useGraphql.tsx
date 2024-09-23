@@ -1,5 +1,5 @@
-import { getClient } from "@/graphql/client";
+import { getClient } from '@/graphql/client'
 
 export const useGraphql = () => {
-  return getClient();
-};
+  return getClient()
+}

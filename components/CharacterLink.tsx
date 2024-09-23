@@ -1,21 +1,21 @@
-import Link from "next/link";
-import styles from "./CharacterLink.module.css";
-import { StarIcon } from "@radix-ui/react-icons";
-import cc from "classcat";
+import Link from 'next/link'
+import styles from './CharacterLink.module.css'
+import { StarIcon } from '@radix-ui/react-icons'
+import cc from 'classcat'
 
 export function CharacterLink({
   character,
   isFavorite,
   toggleFavorite,
 }: {
-  character: Character;
-  isFavorite: boolean;
-  toggleFavorite: (characterId: string) => void;
+  character: Character
+  isFavorite: boolean
+  toggleFavorite: (characterId: string) => void
 }) {
   const handleToggleFavorite = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    toggleFavorite(character.id);
-  };
+    e.preventDefault()
+    toggleFavorite(character.id)
+  }
 
   return (
     <li className={styles.listItem}>
@@ -30,7 +30,7 @@ export function CharacterLink({
           />
           <p className={styles.characterName}>{character.name}</p>
           <p className={styles.episodeName}>
-            Episode: {character?.episode?.[0]?.name || "Unknown"}
+            Episode: {character?.episode?.[0]?.name || 'Unknown'}
           </p>
         </div>
       </Link>
@@ -40,5 +40,5 @@ export function CharacterLink({
         />
       </button>
     </li>
-  );
+  )
 }

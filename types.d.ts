@@ -1,20 +1,20 @@
-declare module "*.gql" {
-  const content: any;
-  export default content;
+declare module '*.gql' {
+  const content: any
+  export default content
 }
 
 type Character = {
-  id: string;
-  name: string;
-  image: string;
-  status: string;
-  species: string;
-  type: string;
-  gender: string;
+  id: string
+  name: string
+  image: string
+  status: string
+  species: string
+  type: string
+  gender: string
   origin: {
-    name: string;
-  };
+    name: string
+  }
   episode: {
-    name: string;
-  }[];
-};
+    name: string
+  }[]
+}

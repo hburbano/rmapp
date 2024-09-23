@@ -1,41 +1,44 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
-import { Navbar } from "@components/Navbar";
-import { Providers } from "./providers";
+import type { Metadata } from 'next'
+import localFont from 'next/font/local'
+
+import { Providers } from './providers'
+
+import { Navbar } from '@components/Navbar'
+
+import './globals.css'
 
 const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-});
+  src: './fonts/GeistVF.woff',
+  variable: '--font-geist-sans',
+})
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-});
+  src: './fonts/GeistMonoVF.woff',
+  variable: '--font-geist-mono',
+})
 
 export const metadata: Metadata = {
-  title: "Rick and Morty",
-  description: "Rick and Morty",
+  title: 'Rick and Morty',
+  description: 'Rick and Morty',
   openGraph: {
-    title: "Rick and Morty Character Explorer",
+    title: 'Rick and Morty Character Explorer',
     description:
-      "Explore the vast universe of Rick and Morty characters. Discover detailed information about your favorite characters from the show.",
-    type: "website",
-    url: "https://rickandmorty-explorer.com",
-    siteName: "Rick and Morty Character Explorer",
-    locale: "en_US",
+      'Explore the vast universe of Rick and Morty characters. Discover detailed information about your favorite characters from the show.',
+    type: 'website',
+    url: 'https://rickandmorty-explorer.com',
+    siteName: 'Rick and Morty Character Explorer',
+    locale: 'en_US',
     images: [
       {
-        url: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+        url: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
       },
     ],
   },
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en">
@@ -46,5 +49,5 @@ export default function RootLayout({
         </Providers>
       </body>
     </html>
-  );
+  )
 }

@@ -1,13 +1,13 @@
-// create a fancy toggle switch
-import styles from "./Toggle.module.css";
-import cc from "classcat";
+import cc from 'classcat'
+
+import styles from './Toggle.module.css'
 
 interface ToggleProps {
-  id: string;
-  checked?: boolean;
-  onChange?: () => void;
-  checkedIcon?: React.ReactNode;
-  uncheckedIcon?: React.ReactNode;
+  id: string
+  checked?: boolean
+  onChange?: () => void
+  checkedIcon?: React.ReactNode
+  uncheckedIcon?: React.ReactNode
 }
 
 export function Toggle({
@@ -24,5 +24,5 @@ export function Toggle({
         {checked ? checkedIcon || undefined : uncheckedIcon || undefined}
       </span>
     </label>
-  );
+  )
 }

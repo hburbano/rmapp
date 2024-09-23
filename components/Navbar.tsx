@@ -1,25 +1,27 @@
-"use client";
+'use client'
 
-import { Toggle } from "@components/ui/Toggle";
-import { useAtom } from "jotai";
-import { colorSchemeAtom } from "@atoms";
-import { useEffect } from "react";
-import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
-import styles from "./Navbar.module.css";
-import Link from "next/link";
+import { useAtom } from 'jotai'
+import Link from 'next/link'
+import { useEffect } from 'react'
+import { MoonIcon, SunIcon } from '@radix-ui/react-icons'
+
+import styles from './Navbar.module.css'
+
+import { colorSchemeAtom } from '@atoms'
+import { Toggle } from '@components/ui/Toggle'
 
 export function Navbar() {
   // Use the atom's state and update function
-  const [colorScheme, setColorScheme] = useAtom(colorSchemeAtom);
+  const [colorScheme, setColorScheme] = useAtom(colorSchemeAtom)
 
   // Function to toggle between light and dark themes
   const toggleColorScheme = () => {
-    setColorScheme((prevScheme) => (prevScheme === "light" ? "dark" : "light"));
-  };
+    setColorScheme((prevScheme) => (prevScheme === 'light' ? 'dark' : 'light'))
+  }
 
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", colorScheme);
-  }, [colorScheme]);
+    document.documentElement.setAttribute('data-theme', colorScheme)
+  }, [colorScheme])
 
   return (
     <nav className={styles.navbar}>
@@ -28,11 +30,11 @@ export function Navbar() {
       </Link>
       <Toggle
         id="theme-switch"
-        checked={colorScheme === "dark"}
+        checked={colorScheme === 'dark'}
         onChange={toggleColorScheme}
         checkedIcon={<MoonIcon />}
         uncheckedIcon={<SunIcon />}
       />
     </nav>
-  );
+  )
 }

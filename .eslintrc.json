@@ -1,8 +1,7 @@
 {
   "extends": "next/core-web-vitals",
-  "plugins": ["jotai"],
+  "plugins": ["prettier"],
   "rules": {
-    "jotai/no-atom-declaration": "error",
-    "sort-imports": "error"
+    "prettier/prettier": "error"
   }
 }
