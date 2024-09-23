@@ -1,7 +1,8 @@
 import Link from 'next/link'
-import styles from './CharacterLink.module.css'
+import styles from './CharacterLink.module.scss'
 import { StarIcon } from '@radix-ui/react-icons'
 import cc from 'classcat'
+import Image from 'next/image'
 
 export function CharacterLink({
   character,
@@ -21,7 +22,7 @@ export function CharacterLink({
     <li className={styles.listItem}>
       <Link href={`/character/${character.id}`} className={styles.link}>
         <div className={styles.characterCard}>
-          <img
+          <Image
             src={character.image}
             alt={character.name}
             width={100}

@@ -4,10 +4,13 @@ const nextConfig = {
     config.module.rules.push({
       test: /\.(graphql|gql)$/,
       exclude: /node_modules/,
-      use: ["graphql-tag/loader"],
-    });
-    return config;
+      use: ['graphql-tag/loader'],
+    })
+    return config
   },
-};
+  images: {
+    remotePatterns: [{ hostname: 'rickandmortyapi.com' }],
+  },
+}
 
-export default nextConfig;
+export default nextConfig

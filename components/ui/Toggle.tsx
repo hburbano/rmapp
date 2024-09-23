@@ -1,6 +1,6 @@
 import cc from 'classcat'
 
-import styles from './Toggle.module.css'
+import styles from './Toggle.module.scss'
 
 interface ToggleProps {
   id: string

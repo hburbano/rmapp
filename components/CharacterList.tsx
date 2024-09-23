@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { useAtom } from 'jotai'
 import { useQuery } from '@urql/next'
 
-import styles from './CharacterList.module.css'
+import styles from './CharacterList.module.scss'
 import { CharacterLink } from './CharacterLink'
 
 import { favoriteCharactersAtom, filterAtom } from '@/atoms'
@@ -52,23 +52,50 @@ export function CharacterList() {
           />
         ))}
       </ul>
-      <div className={styles.pagination}>
-        <button
-          disabled={page === 1 || fetching}
-          onClick={() => setPage(page - 1)}
-        >
-          Previous
-        </button>
-        <span>
-          {page} / {totalPages}
-        </span>
-        <button
-          disabled={page === totalPages || fetching}
-          onClick={() => setPage(page + 1)}
-        >
-          Next
-        </button>
-      </div>
+      <Pagination
+        currentPage={page}
+        totalPages={totalPages}
+        isLoading={fetching}
+        onPageChange={setPage}
+      />
+    </div>
+  )
+}
+
+function Pagination({
+  currentPage,
+  totalPages,
+  isLoading,
+  onPageChange,
+}: {
+  currentPage: number
+  totalPages: number
+  isLoading: boolean
+  onPageChange: (page: number) => void
+}) {
+  const handlePageChange = (page: number) => {
+    if (!isLoading) {
+      onPageChange(page)
+    }
+  }
+
+  return (
+    <div className={styles.pagination}>
+      <button
+        disabled={currentPage === 1 || isLoading}
+        onClick={() => handlePageChange(currentPage - 1)}
+      >
+        Previous
+      </button>
+      <span>
+        {currentPage} / {totalPages}
+      </span>
+      <button
+        disabled={currentPage === totalPages || isLoading}
+        onClick={() => handlePageChange(currentPage + 1)}
+      >
+        Next
+      </button>
     </div>
   )
 }

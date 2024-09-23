@@ -1,4 +1,4 @@
-import styles from './page.module.css'
+import styles from './page.module.scss'
 
 import { CharacterList } from '@components/CharacterList'
 import { Filters } from '@components/Filters'

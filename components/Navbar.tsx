@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useEffect } from 'react'
 import { MoonIcon, SunIcon } from '@radix-ui/react-icons'
 
-import styles from './Navbar.module.css'
+import styles from './Navbar.module.scss'
 
 import { colorSchemeAtom } from '@atoms'
 import { Toggle } from '@components/ui/Toggle'

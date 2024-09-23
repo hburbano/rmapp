@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 
-import styles from './page.module.css'
+import styles from './page.module.scss'
 
 import GET_CHARACTERS from '@graphql/queries/characters.gql'
 import { getClient } from '@graphql/client'
@@ -70,6 +70,8 @@ export default async function CharacterDetails({ params }: { params: Params }) {
           src={character.image}
           alt={character.name}
           className={styles.image}
+          width={300}
+          height={300}
         />
       </div>
     </main>

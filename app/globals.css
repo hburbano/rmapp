@@ -20,23 +20,12 @@ body {
   overflow-x: hidden;
   color-scheme: var(--color-scheme, light);
   font-family: var(--font-geist-mono);
-  animation: animateBackground 20s linear infinite;
-}
-
-@keyframes animateBackground {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 100% 100%;
-  }
 }
 
 body {
   color: var(--font-color);
   background: var(--bg-color);
   transition: background 0.4s ease-in-out;
-  /* animation: sunset 10s infinite; */
 }
 
 * {
