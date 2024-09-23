@@ -26,7 +26,9 @@ export function Navbar() {
   return (
     <nav className={styles.navbar}>
       <Link href="/">
-        <h1>Rick and Morty</h1>
+        <h1>
+          Rick and Morty <span>Wiki</span>
+        </h1>
       </Link>
       <Toggle
         id="theme-switch"

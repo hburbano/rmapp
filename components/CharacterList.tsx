@@ -7,6 +7,7 @@ import { useQuery } from '@urql/next'
 import styles from './CharacterList.module.scss'
 import { CharacterLink } from './CharacterLink'
 import { Pagination } from './Pagination'
+import { CharacterSkeleton } from './CharacterSkeleton'
 
 import { favoriteCharactersAtom, filterAtom } from '@/atoms'
 import CHARACTERS from '@graphql/queries/characters.gql'
@@ -19,13 +20,19 @@ export function CharacterList() {
     favoriteCharactersAtom
   )
 
-  const [{ data, fetching }] = useQuery({
+  const [res] = useQuery({
     query: CHARACTERS.GetCharacters,
     variables: { filter: debouncedFilter, page },
   })
 
+  const { data, fetching, error } = res
+  console.log({ data, fetching, error, res })
+
   useEffect(() => {
-    const timer = setTimeout(() => setDebouncedFilter(filter), 500)
+    const timer = setTimeout(() => {
+      setPage(1)
+      setDebouncedFilter(filter)
+    }, 500)
     return () => clearTimeout(timer)
   }, [filter])
 
@@ -43,16 +50,27 @@ export function CharacterList() {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Character List</h1>
-      <ul className={styles.list}>
-        {characters?.map((character: Character) => (
-          <CharacterLink
-            key={character.id}
-            character={character}
-            isFavorite={favoriteCharacters.includes(character.id)}
-            toggleFavorite={toggleFavorite}
-          />
-        ))}
-      </ul>
+      {characters.length === 0 && !fetching ? (
+        <p className={styles.emptyNotice}>
+          No characters found for the provided search parameters.
+        </p>
+      ) : (
+        <ul className={styles.list}>
+          {fetching
+            ? // Display skeleton loaders while fetching
+              Array.from({ length: 20 }).map((_, index) => (
+                <CharacterSkeleton key={index} />
+              ))
+            : characters?.map((character: Character) => (
+                <CharacterLink
+                  key={character.id}
+                  character={character}
+                  isFavorite={favoriteCharacters.includes(character.id)}
+                  toggleFavorite={toggleFavorite}
+                />
+              ))}
+        </ul>
+      )}
       <Pagination
         currentPage={page}
         totalPages={totalPages}

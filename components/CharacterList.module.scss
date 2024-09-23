@@ -23,6 +23,13 @@
   margin-bottom: 2rem;
 }
 
+.emptyNotice {
+  text-align: center;
+  font-style: italic;
+  padding: 4rem;
+  height: 100%;
+}
+
 @media (min-width: 768px) {
   .list {
     grid-template-columns: repeat(2, 1fr);
