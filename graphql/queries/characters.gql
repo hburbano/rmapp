@@ -8,6 +8,10 @@ fragment CharacterFields on Character {
   origin {
     name
   }
+  episode {
+    id
+    name
+  }
 }
 
 query GetCharacters($filter: FilterCharacter, $page: Int) {

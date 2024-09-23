@@ -2,6 +2,8 @@
 
 import { useAtom } from 'jotai'
 
+import styles from './Filters.module.scss'
+
 import { filterAtom } from '@atoms'
 
 export function Filters() {
@@ -12,50 +14,31 @@ export function Filters() {
   }
 
   return (
-    <div>
-      Filters:
-      <input
-        name="name"
-        type="text"
-        placeholder="Name"
-        value={filter.name}
-        onChange={handleChange}
-      />
-      <input
-        name="status"
-        type="text"
-        placeholder="Status"
-        value={filter.status}
-        onChange={handleChange}
-      />
-      <input
-        name="species"
-        type="text"
-        placeholder="Species"
-        value={filter.species}
-        onChange={handleChange}
-      />
-      <input
-        name="type"
-        type="text"
-        placeholder="Type"
-        value={filter.type}
-        onChange={handleChange}
-      />
-      <input
-        name="gender"
-        type="text"
-        placeholder="Gender"
-        value={filter.gender}
-        onChange={handleChange}
-      />
-      <input
-        name="origin"
-        type="text"
-        placeholder="Origin"
-        value={filter.origin}
-        onChange={handleChange}
-      />
+    <div className={styles.container}>
+      <span>Filters:</span>
+      <div className={styles.filters}>
+        <input
+          name="name"
+          type="text"
+          placeholder="Name"
+          value={filter.name}
+          onChange={handleChange}
+        />
+        <input
+          name="status"
+          type="text"
+          placeholder="Status"
+          value={filter.status}
+          onChange={handleChange}
+        />
+        <input
+          name="gender"
+          type="text"
+          placeholder="Gender"
+          value={filter.gender}
+          onChange={handleChange}
+        />
+      </div>
     </div>
   )
 }

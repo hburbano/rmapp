@@ -1,13 +1,5 @@
 @import './common.scss';
 
-.page {
-  display: grid;
-  grid-template-rows: 1fr auto;
-  min-height: 100svh;
-  padding: 80px;
-  font-synthesis: none;
-}
-
 .footer {
   display: flex;
   flex-wrap: wrap;

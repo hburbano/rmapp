@@ -36,9 +36,11 @@ export function CharacterLink({
         </div>
       </Link>
       <button className={styles.favoriteButton} onClick={handleToggleFavorite}>
-        <StarIcon
+        <div
           className={cc([styles.favoriteIcon, isFavorite && styles.isFavorite])}
-        />
+        >
+          <StarIcon />
+        </div>
       </button>
     </li>
   )

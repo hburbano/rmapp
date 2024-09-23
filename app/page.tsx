@@ -5,7 +5,7 @@ import { Filters } from '@components/Filters'
 
 export default function Home() {
   return (
-    <div className={styles.page}>
+    <>
       <main className={styles.main}>
         <Filters />
         <CharacterList />
@@ -13,6 +13,6 @@ export default function Home() {
       <footer className={styles.footer}>
         <p>Rick and Morty - GraphQL Example - 2024</p>
       </footer>
-    </div>
+    </>
   )
 }
