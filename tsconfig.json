@@ -23,7 +23,12 @@
       "@components/*": ["./components/*"],
       "@atoms": ["./atoms/index.ts"],
       "@graphql/*": ["./graphql/*"]
-    }
+    },
+    "types": [
+      "vitest/globals",
+      "vitest/jsdom",
+      "@testing-library/jest-dom"
+    ]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]

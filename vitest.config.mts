@@ -9,4 +9,11 @@ export default defineConfig({
     include: ['app/**/*.test.tsx', 'components/**/*.test.tsx'],
     setupFiles: ['test/setup.js'],
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern',
+      },
+    },
+  },
 })

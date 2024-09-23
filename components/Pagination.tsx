@@ -1,39 +1,59 @@
 import styles from './Pagination.module.scss'
 
+interface PaginationProps {
+  currentPage: number
+  totalPages: number
+  isLoading: boolean
+  onPageChange: (page: number) => void
+}
+
 export function Pagination({
   currentPage,
   totalPages,
   isLoading,
   onPageChange,
-}: {
-  currentPage: number
-  totalPages: number
-  isLoading: boolean
-  onPageChange: (page: number) => void
-}) {
+}: PaginationProps) {
   const handlePageChange = (page: number) => {
     if (!isLoading) {
       onPageChange(page)
     }
   }
 
+  const isPreviousDisabled = currentPage === 1 || isLoading
+  const isNextDisabled = currentPage === totalPages || isLoading
+  const handlePreviousPage = () => {
+    if (!isPreviousDisabled) {
+      handlePageChange(currentPage - 1)
+    }
+  }
+  const handleNextPage = () => {
+    if (!isNextDisabled) {
+      handlePageChange(currentPage + 1)
+    }
+  }
+
   return (
-    <div className={styles.pagination}>
+    <nav className={styles.pagination} aria-label="Pagination">
       <button
-        disabled={currentPage === 1 || isLoading}
-        onClick={() => handlePageChange(currentPage - 1)}
+        disabled={isPreviousDisabled}
+        onClick={handlePreviousPage}
+        aria-label="Go to previous page"
       >
         Previous
       </button>
-      <span>
-        {currentPage} / {totalPages}
+      <span
+        aria-current="page"
+        aria-label={`Page ${currentPage} of ${totalPages}`}
+      >
+        {currentPage} <span aria-hidden="true">/</span> {totalPages}
       </span>
       <button
-        disabled={currentPage === totalPages || isLoading}
-        onClick={() => handlePageChange(currentPage + 1)}
+        disabled={isNextDisabled}
+        onClick={handleNextPage}
+        aria-label="Go to next page"
       >
         Next
       </button>
-    </div>
+    </nav>
   )
 }
