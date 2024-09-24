@@ -4,7 +4,7 @@ import skeletonImage from '../public/place_no_bg.png'
 
 export function CharacterSkeleton() {
   return (
-    <li className={styles.skeleton}>
+    <li data-testid="character-skeleton" className={styles.skeleton}>
       <div className={styles.characterCard}>
         <Image
           src={skeletonImage}

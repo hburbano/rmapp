@@ -22,7 +22,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@/': path.resolve(__dirname, './'),
+      '@app': path.resolve(__dirname, './app'),
       '@components': path.resolve(__dirname, './components'),
       '@atoms': path.resolve(__dirname, './atoms'),
       '@hooks': path.resolve(__dirname, './hooks'),

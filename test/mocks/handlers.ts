@@ -1,4 +1,4 @@
-import { http, HttpResponse } from 'msw'
+import { http, delay, HttpResponse } from 'msw'
 
 // Mock character data would probaly use faker and random data
 export const mockCharacter: Character = {
@@ -25,10 +25,12 @@ export const mockEpisode = {
 }
 
 const handleGetCharacter = () => {
+  delay(100)
   return HttpResponse.json(mockCharacter)
 }
 
 const handleGetCharacters = () => {
+  delay(100)
   return HttpResponse.json({
     info: {
       count: 1,

@@ -11,9 +11,8 @@ import { CharacterSkeleton } from './CharacterSkeleton'
 import { favoriteCharactersAtom, filterAtom } from '@atoms'
 import { useCharacters } from '@hooks'
 
-// Constants
 const DEBOUNCE_DELAY = 500
-const SKELETON_COUNT = 20
+export const SKELETON_COUNT = 20
 
 export function CharacterList() {
   // State
@@ -86,7 +85,7 @@ export function CharacterList() {
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid="character-list">
       <h2 className={styles.title}>Character List</h2>
       {renderContent()}
       <Pagination

@@ -38,7 +38,11 @@ export function Pagination({
 
   // Render
   return (
-    <nav className={styles.pagination} aria-label="Pagination">
+    <nav
+      data-testid="pagination"
+      className={styles.pagination}
+      aria-label="Pagination"
+    >
       <button
         disabled={isPreviousDisabled}
         onClick={handlePreviousPage}
