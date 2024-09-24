@@ -1,6 +1,7 @@
-import { render, fireEvent } from '@testing-library/react'
+import { render, fireEvent, getByTestId } from '@testing-library/react'
 import { CharacterLink } from '@components/CharacterLink'
 import { mockCharacter } from '@test/mocks/handlers'
+import exp from 'constants'
 
 const props = {
   character: mockCharacter,
@@ -24,7 +25,9 @@ describe('CharacterLink', () => {
   })
 
   it('should call toggleFavorite when the favorite button is clicked', () => {
-    const { getByRole } = render(<CharacterLink {...props} />)
+    const { getByRole, getByTestId } = render(<CharacterLink {...props} />)
+
+    expect(getByTestId('heart-icon')).toBeInTheDocument()
 
     const favoriteButton = getByRole('button', {
       name: `add ${mockCharacter.name} to favorites`,
@@ -32,5 +35,13 @@ describe('CharacterLink', () => {
     fireEvent.click(favoriteButton)
 
     expect(props.toggleFavorite).toHaveBeenCalledWith(mockCharacter.id)
+  })
+
+  it('should render the heart-filled icon when the character is a favorite', () => {
+    const { getByTestId } = render(
+      <CharacterLink {...props} isFavorite={true} />
+    )
+
+    expect(getByTestId('heart-filled-icona')).toBeInTheDocument()
   })
 })

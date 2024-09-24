@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import styles from './CharacterLink.module.scss'
-import { StarIcon } from '@radix-ui/react-icons'
+import { HeartIcon, HeartFilledIcon } from '@radix-ui/react-icons'
 import cc from 'classcat'
 import Image from 'next/image'
 
@@ -36,15 +36,15 @@ export function CharacterLink({
         </div>
       </Link>
       <button
-        className={styles.favoriteButton}
         onClick={handleToggleFavorite}
         aria-label={`add ${character.name} to favorites`}
+        className={cc([styles.favoriteButton, isFavorite && styles.isFavorite])}
       >
-        <div
-          className={cc([styles.favoriteIcon, isFavorite && styles.isFavorite])}
-        >
-          <StarIcon />
-        </div>
+        {isFavorite ? (
+          <HeartFilledIcon data-testid="heart-filled-icon" />
+        ) : (
+          <HeartIcon data-testid="heart-icon" />
+        )}
       </button>
     </li>
   )
