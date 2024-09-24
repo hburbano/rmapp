@@ -3,8 +3,14 @@
   flex-direction: column;
   gap: 32px;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 0 auto;
   max-width: 1200px;
   padding: 0 2rem;
+  flex: 1 0 auto;
 }
+
+// Breakpoint variables for media queries
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-large: 1440px;

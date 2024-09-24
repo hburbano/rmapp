@@ -9,7 +9,7 @@ type Params = {
 }
 
 export async function generateMetadata({ params }: { params: Params }) {
-  const character = await await fetchCharacter(params.id)
+  const character = await fetchCharacter(params.id)
   return {
     title: `${character.name} | Rick and Morty Character | Rick and Morty App`,
     description: `Learn about ${character.name}, a ${character.species} character from Rick and Morty. Status: ${character.status}. Origin: ${character.origin.name}.`,
@@ -40,33 +40,28 @@ export default async function CharacterDetails({ params }: { params: Params }) {
   return (
     <main className={styles.main}>
       <div className={styles.details}>
-        <span>This is a test</span>
         <h1 className={styles.name}>{character.name}</h1>
-        <ul className={styles.list}>
-          <li>
-            <strong>Status:</strong> {character.status}
-          </li>
-          <li>
-            <strong>Species:</strong> {character.species}
-          </li>
-          <li>
-            <strong>Type:</strong> {character.type || 'N/A'}
-          </li>
-          <li>
-            <strong>Gender:</strong> {character.gender}
-          </li>
-          <li>
-            <strong>Origin:</strong> {character.origin.name}
-          </li>
-          <li>
-            <strong>Episode:</strong> {episode.name} ~ {episode.episode}
-          </li>
-        </ul>
+        <dl className={styles.list}>
+          <dt>Status</dt>
+          <dd>{character.status}</dd>
+          <dt>Species</dt>
+          <dd>{character.species}</dd>
+          <dt>Type</dt>
+          <dd>{character.type || 'N/A'}</dd>
+          <dt>Gender</dt>
+          <dd>{character.gender}</dd>
+          <dt>Origin</dt>
+          <dd>{character.origin.name}</dd>
+          <dt>Featured Episode</dt>
+          <dd>
+            <span>{episode.name}</span> ~ <span>{episode.episode}</span>
+          </dd>
+        </dl>
       </div>
       <div className={styles.imageContainer}>
         <Image
           src={character.image}
-          alt={character.name}
+          alt={`Avatar of ${character.name}`}
           className={styles.image}
           width={300}
           height={300}

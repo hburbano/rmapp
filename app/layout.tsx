@@ -5,7 +5,7 @@ import { Providers } from './providers'
 
 import { Navbar } from '@components/Navbar'
 
-import './globals.css'
+import './globals.scss'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -44,8 +44,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Providers>
-          <Navbar />
+          <header>
+            <Navbar />
+          </header>
           {children}
+          <footer>
+            <p>Rick and Morty - API Example - 2024</p>
+          </footer>
         </Providers>
       </body>
     </html>

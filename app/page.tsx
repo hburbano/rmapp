@@ -5,14 +5,9 @@ import { Filters } from '@components/Filters'
 
 export default function Home() {
   return (
-    <>
-      <main className={styles.main}>
-        <Filters />
-        <CharacterList />
-      </main>
-      <footer className={styles.footer}>
-        <p>Rick and Morty - API Example - 2024</p>
-      </footer>
-    </>
+    <main className={styles.main}>
+      <Filters />
+      <CharacterList />
+    </main>
   )
 }
