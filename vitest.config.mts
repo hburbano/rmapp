@@ -8,7 +8,7 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     include: ['app/**/*.test.tsx', 'components/**/*.test.tsx'],
-    setupFiles: ['test/setup.js'],
+    setupFiles: ['test/setup.ts'],
     coverage: {
       reporter: ['text', 'html', 'json'],
     },
@@ -26,6 +26,7 @@ export default defineConfig({
       '@components': path.resolve(__dirname, './components'),
       '@atoms': path.resolve(__dirname, './atoms'),
       '@hooks': path.resolve(__dirname, './hooks'),
+      '@test': path.resolve(__dirname, './test'),
     },
   },
 })

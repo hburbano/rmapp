@@ -31,14 +31,15 @@ export function CharacterLink({
           />
           <p className={styles.characterName}>{character.name}</p>
           <p className={styles.details}>
-            {character?.origin?.name || 'Unknown'}
-          </p>
-          <p className={styles.details}>
             Status: {character?.status || 'Unknown'}
           </p>
         </div>
       </Link>
-      <button className={styles.favoriteButton} onClick={handleToggleFavorite}>
+      <button
+        className={styles.favoriteButton}
+        onClick={handleToggleFavorite}
+        aria-label={`add ${character.name} to favorites`}
+      >
         <div
           className={cc([styles.favoriteIcon, isFavorite && styles.isFavorite])}
         >

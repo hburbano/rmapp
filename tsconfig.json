@@ -22,7 +22,8 @@
       "@/*": ["./*"],
       "@components/*": ["./components/*"],
       "@atoms": ["./atoms/index.ts"],
-      "@hooks": ["./hooks/index.ts"]
+      "@hooks": ["./hooks/index.ts"],
+      "@test/*": ["./test/*"]
     },
     "types": [
       "vitest/globals",

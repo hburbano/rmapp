@@ -52,10 +52,14 @@ export default async function CharacterDetails({ params }: { params: Params }) {
           <dd>{character.gender}</dd>
           <dt>Origin</dt>
           <dd>{character.origin.name}</dd>
+          <dt>Location</dt>
+          <dd>{character.location.name}</dd>
           <dt>Featured Episode</dt>
           <dd>
             <span>{episode.name}</span> ~ <span>{episode.episode}</span>
           </dd>
+          <dt>Total Episodes</dt>
+          <dd>{character.episode.length}</dd>
         </dl>
       </div>
       <div className={styles.imageContainer}>

@@ -1,7 +1,7 @@
 import { http, HttpResponse } from 'msw'
 
-// Mock character data
-const mockCharacter = {
+// Mock character data would probaly use faker and random data
+export const mockCharacter: Character = {
   id: '1',
   name: 'John Doe',
   status: 'Alive',
@@ -9,13 +9,16 @@ const mockCharacter = {
   type: '',
   gender: 'Male',
   origin: {
-    name: 'Earth',
+    name: 'Earth Origin',
+  },
+  location: {
+    name: 'Earth Location',
   },
   image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
   episode: ['https://rickandmortyapi.com/api/episode/1'],
 }
 
-const mockEpisode = {
+export const mockEpisode = {
   id: '1',
   name: 'Pilot',
   episode: 'S01E01',

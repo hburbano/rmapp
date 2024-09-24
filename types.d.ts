@@ -14,7 +14,8 @@ type Character = {
   origin: {
     name: string
   }
-  episode: {
+  location: {
     name: string
-  }[]
+  }
+  episode: string[]
 }

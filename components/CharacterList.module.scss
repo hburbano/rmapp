@@ -1,7 +1,8 @@
+@import '../app/common.scss';
+
 .container {
   margin: 0 auto;
   padding: 20px;
-  min-height: 100%;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -30,19 +31,19 @@
   height: 100%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: $breakpoint-tablet) {
   .list {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: $breakpoint-desktop) {
   .list {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: $breakpoint-large) {
   .list {
     grid-template-columns: repeat(4, 1fr);
   }

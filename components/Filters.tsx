@@ -14,7 +14,7 @@ export function Filters() {
   }
 
   return (
-    <div className={styles.container}>
+    <div data-testid="filters" className={styles.container}>
       <span>Filters:</span>
       <div className={styles.filters}>
         <input

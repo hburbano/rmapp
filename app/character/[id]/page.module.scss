@@ -1,5 +1,6 @@
 @import '../../common.scss';
 
+// Layout
 .main {
   min-width: 100%;
   align-items: center;
@@ -10,6 +11,10 @@
   flex: 1;
   width: 100%;
   margin-bottom: 1rem;
+}
+
+.imageContainer {
+  width: 100%;
 }
 
 .name {
@@ -32,10 +37,6 @@
   }
 }
 
-.imageContainer {
-  width: 100%;
-}
-
 .image {
   width: 100%;
   height: auto;
@@ -56,27 +57,23 @@
     flex-direction: row;
     padding: 2rem;
     align-items: flex-start;
-    flex-direction: row;
     max-width: 1200px;
   }
 
   .imageContainer {
     flex: 0 0 40%;
+    max-width: 500px;
   }
 }
 
 @media (min-width: $breakpoint-desktop) {
   .main {
-    flex-direction: row;
     padding: 5rem 10rem;
-    max-width: 1200px;
   }
 }
 
 @media (min-width: $breakpoint-large) {
   .main {
-    flex-direction: row;
     padding: 5rem 15rem;
-    max-width: 1200px;
   }
 }
