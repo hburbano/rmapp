@@ -68,6 +68,10 @@ To learn more about the technologies used in this project, check out the followi
 - [TanStack Query Documentation](https://tanstack.com/query/latest)
 - [Jotai Documentation](https://jotai.org/)
 
+## Deployment
+
+This project has been deployed to https://rmapp.bbox.co using Vercel.
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
