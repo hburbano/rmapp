@@ -2,8 +2,6 @@
 
 .skeleton {
   @extend .listItem;
-  position: relative;
-  overflow: hidden;
   color: var(--color-text-secondary);
   
   &::before {

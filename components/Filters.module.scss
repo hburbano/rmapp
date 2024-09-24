@@ -2,25 +2,80 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-bottom: 2rem;
   width: 100%;
   padding: 0 1rem;
 }
 
+// Filters styles
 .filters {
   display: flex;
   flex-direction: row;
-  gap: 1rem;
   flex-wrap: wrap;
+  gap: 1rem;
+
+  // Input and select styles
+  input,
+  select {
+    border-radius: 0.25rem;
+    flex: 1;
+    font-size: 1rem;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+  }
+
+  input:first-child {
+    flex: 2;
+  }
+
+  // Select styles
+  select {
+    appearance: none;
+    background-position: right 0.7rem top 50%;
+    background-repeat: no-repeat;
+    background-size: 0.65rem auto;
+    padding-right: 2rem;
+  }
+
+  // Label styles
+  label {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 0.5rem;
+
+    &:first-child {
+      flex: 2;
+    }
+
+    span {
+      font-weight: bold;
+    }
+  }
 }
 
-.filters input {
-  padding: 0.5rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 0.25rem;
-  flex: 1;
-}
+// Select container styles
+.selectContainer {
+  position: relative;
+  width: 100%;
 
-.filters input:first-child {
-  flex: 2;
+  select {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    appearance: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  &::after {
+    content: '▼';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
 }

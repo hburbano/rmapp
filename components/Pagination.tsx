@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import styles from './Pagination.module.scss'
 
 interface PaginationProps {
@@ -10,19 +9,10 @@ interface PaginationProps {
 
 export function Pagination({
   currentPage,
-  totalPages,
+  totalPages = 1,
   isLoading,
   onPageChange,
 }: PaginationProps) {
-  const [memoPage, setMemoPage] = useState(totalPages)
-
-  // Effects
-  useEffect(() => {
-    if (memoPage !== totalPages && totalPages > 0) {
-      setMemoPage(totalPages)
-    }
-  }, [totalPages, memoPage])
-
   // Derived state
   const isPreviousDisabled = currentPage === 1 || isLoading
   const isNextDisabled = currentPage === totalPages || isLoading
@@ -60,7 +50,7 @@ export function Pagination({
         aria-current="page"
         aria-label={`Page ${currentPage} of ${totalPages}`}
       >
-        {currentPage} <span aria-hidden="true">/</span> {memoPage}
+        {currentPage} <span aria-hidden="true">/</span> {totalPages}
       </span>
       <button
         disabled={isNextDisabled}

@@ -86,7 +86,7 @@ export function CharacterList() {
   }
 
   return (
-    <div data-testid="character-list" className={styles.container}>
+    <div className={styles.container}>
       <h2 className={styles.title}>Character List</h2>
       {renderContent()}
       <Pagination
