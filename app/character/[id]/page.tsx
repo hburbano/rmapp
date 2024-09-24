@@ -2,19 +2,14 @@ import React from 'react'
 import Image from 'next/image'
 
 import styles from './page.module.scss'
-
-import GET_CHARACTERS from '@graphql/queries/characters.gql'
-import { getClient } from '@graphql/client'
+import { fetchCharacter, fetchEpisode } from '@hooks'
 
 type Params = {
   id: string
 }
 
 export async function generateMetadata({ params }: { params: Params }) {
-  const result = await getClient().query(GET_CHARACTERS.GetCharacter, {
-    id: params.id,
-  })
-  const character = result.data.character
+  const character = await await fetchCharacter(params.id)
   return {
     title: `${character.name} | Rick and Morty Character | Rick and Morty App`,
     description: `Learn about ${character.name}, a ${character.species} character from Rick and Morty. Status: ${character.status}. Origin: ${character.origin.name}.`,
@@ -38,14 +33,14 @@ export async function generateMetadata({ params }: { params: Params }) {
 }
 
 export default async function CharacterDetails({ params }: { params: Params }) {
-  const result = await getClient().query(GET_CHARACTERS.GetCharacter, {
-    id: params.id,
-  })
-  const character: Character = result.data.character
-
+  const character = await fetchCharacter(params.id)
+  const episode = await fetchEpisode(
+    character.episode[0].split('/').pop() || ''
+  )
   return (
     <main className={styles.main}>
       <div className={styles.details}>
+        <span>This is a test</span>
         <h1 className={styles.name}>{character.name}</h1>
         <ul className={styles.list}>
           <li>
@@ -62,6 +57,9 @@ export default async function CharacterDetails({ params }: { params: Params }) {
           </li>
           <li>
             <strong>Origin:</strong> {character.origin.name}
+          </li>
+          <li>
+            <strong>Episode:</strong> {episode.name} ~ {episode.episode}
           </li>
         </ul>
       </div>

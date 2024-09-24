@@ -11,7 +11,7 @@ export default function Home() {
         <CharacterList />
       </main>
       <footer className={styles.footer}>
-        <p>Rick and Morty - GraphQL Example - 2024</p>
+        <p>Rick and Morty - API Example - 2024</p>
       </footer>
     </>
   )

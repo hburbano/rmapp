@@ -22,7 +22,7 @@
       "@/*": ["./*"],
       "@components/*": ["./components/*"],
       "@atoms": ["./atoms/index.ts"],
-      "@graphql/*": ["./graphql/*"]
+      "@hooks": ["./hooks/index.ts"]
     },
     "types": [
       "vitest/globals",

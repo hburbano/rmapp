@@ -2,7 +2,8 @@
   "extends": ["next/core-web-vitals", "plugin:vitest-globals/recommended"],
   "plugins": ["prettier", "@vitest"],
   "rules": {
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "no-console": "error"
   },
   "env": {
     "vitest-globals/env": true

@@ -1,6 +1,6 @@
 # Rick and Morty Character Explorer
 
-This project is a Next.js application that allows users to explore characters from the Rick and Morty universe. It utilizes the Rick and Morty GraphQL API to fetch and display character information.
+This project is a Next.js application that allows users to explore characters from the Rick and Morty universe. It utilizes the Rick and Morty API to fetch and display character information.
 
 ## Features
 
@@ -14,7 +14,7 @@ This project is a Next.js application that allows users to explore characters fr
 - Next.js 14.2
 - React 18.3
 - TypeScript 5.5
-- GraphQL with URQL
+- React Query (TanStack Query) for data fetching and caching
 - Jotai for state management
 - SASS for styling
 
@@ -65,7 +65,7 @@ To learn more about the technologies used in this project, check out the followi
 
 - [Next.js Documentation](https://nextjs.org/docs)
 - [React Documentation](https://reactjs.org/docs)
-- [URQL Documentation](https://formidable.com/open-source/urql/)
+- [TanStack Query Documentation](https://tanstack.com/query/latest)
 - [Jotai Documentation](https://jotai.org/)
 
 ## Contributing

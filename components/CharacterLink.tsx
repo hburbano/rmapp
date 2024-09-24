@@ -30,8 +30,11 @@ export function CharacterLink({
             className={styles.characterImage}
           />
           <p className={styles.characterName}>{character.name}</p>
-          <p className={styles.episodeName}>
-            Episode: {character?.episode?.[0]?.name || 'Unknown'}
+          <p className={styles.details}>
+            {character?.origin?.name || 'Unknown'}
+          </p>
+          <p className={styles.details}>
+            Status: {character?.status || 'Unknown'}
           </p>
         </div>
       </Link>

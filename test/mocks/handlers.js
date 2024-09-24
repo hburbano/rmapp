@@ -1,37 +1,49 @@
-import { graphql } from 'msw'
+import { http, HttpResponse } from 'msw'
 
-const handleGetCharacter = (req, res, ctx) => {
-  return res(
-    ctx.data({
-      character: {
-        name: 'John Doe',
-        // Add other character fields as needed
-      },
-    })
-  )
+// Mock character data
+const mockCharacter = {
+  id: '1',
+  name: 'John Doe',
+  status: 'Alive',
+  species: 'Human',
+  type: '',
+  gender: 'Male',
+  origin: {
+    name: 'Earth',
+  },
+  image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
+  episode: ['https://rickandmortyapi.com/api/episode/1'],
 }
 
-const handleGetCharacters = (req, res, ctx) => {
-  return res(
-    ctx.data({
-      characters: {
-        info: {
-          count: 1,
-          pages: 1,
-        },
-        results: [
-          {
-            id: '1',
-            name: 'John Doe',
-            // Add other character fields as needed
-          },
-        ],
-      },
-    })
-  )
+const mockEpisode = {
+  id: '1',
+  name: 'Pilot',
+  episode: 'S01E01',
 }
 
+const handleGetCharacter = () => {
+  return HttpResponse.json(mockCharacter)
+}
+
+const handleGetCharacters = () => {
+  return HttpResponse.json({
+    info: {
+      count: 1,
+      pages: 1,
+      next: null,
+      prev: null,
+    },
+    results: [mockCharacter],
+  })
+}
+
+const handleGetEpisode = () => {
+  return HttpResponse.json(mockEpisode)
+}
+
+// API routes
 export const handlers = [
-  graphql.query('GetCharacter', handleGetCharacter),
-  graphql.query('GetCharacters', handleGetCharacters),
+  http.get('https://rickandmortyapi.com/api/character', handleGetCharacters),
+  http.get('https://rickandmortyapi.com/api/character/:id', handleGetCharacter),
+  http.get('https://rickandmortyapi.com/api/episode/:id', handleGetEpisode),
 ]
