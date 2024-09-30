@@ -42,6 +42,6 @@ describe('CharacterLink', () => {
       <CharacterLink {...props} isFavorite={true} />
     )
 
-    expect(getByTestId('heart-filled-icona')).toBeInTheDocument()
+    expect(getByTestId('heart-filled-icon')).toBeInTheDocument()
   })
 })
